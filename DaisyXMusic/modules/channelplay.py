@@ -127,9 +127,9 @@ def r_ply(type_):
                 InlineKeyboardButton("⏭", "cskip"),
             ],
             [
-                InlineKeyboardButton("Playlist 📖", "cplaylist"),
+                InlineKeyboardButton("Siyahı 📖", "cplaylist"),
             ],
-            [InlineKeyboardButton("❌ Close", "ccls")],
+            [InlineKeyboardButton("❌ Ləğv Et", "ccls")],
         ]
     )
     return mar
