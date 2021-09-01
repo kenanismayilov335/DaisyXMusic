@@ -46,10 +46,10 @@ async def pause(_, message: Message):
     if (chat_id not in callsmusic.active_chats) or (
         callsmusic.active_chats[chat_id] == "paused"
     ):
-        await message.reply_text("❗ Nothing is playing!")
+        await message.reply_text("❗ Heç nə oynamır")
     else:
         callsmusic.pause(chat_id)
-        await message.reply_text("▶️ Paused!")
+        await message.reply_text("▶️ Durduruldu!")
 
 
 @Client.on_message(filters.command(["channelresume","cresume"]) & filters.group & ~filters.edited)
@@ -67,10 +67,10 @@ async def resume(_, message: Message):
     if (chat_id not in callsmusic.active_chats) or (
         callsmusic.active_chats[chat_id] == "playing"
     ):
-        await message.reply_text("❗ Nothing is paused!")
+        await message.reply_text("❗ Heç bir şey durdurulmur!")
     else:
         callsmusic.resume(chat_id)
-        await message.reply_text("⏸ Resumed!")
+        await message.reply_text("⏸ davam etmək!")
 
 
 @Client.on_message(filters.command(["channelend","cend"]) & filters.group & ~filters.edited)
@@ -86,7 +86,7 @@ async def stop(_, message: Message):
       return    
     chat_id = chid
     if chat_id not in callsmusic.active_chats:
-        await message.reply_text("❗ Nothing is streaming!")
+        await message.reply_text("❗ Heç nə Yoxdu !")
     else:
         try:
             queues.clear(chat_id)
@@ -94,7 +94,7 @@ async def stop(_, message: Message):
             pass
 
         await callsmusic.stop(chat_id)
-        await message.reply_text("❌ Stopped streaming!")
+        await message.reply_text("❌ Yayın dayandırıldı!")
 
 
 @Client.on_message(filters.command(["channelskip","cskip"]) & filters.group & ~filters.edited)
@@ -111,7 +111,7 @@ async def skip(_, message: Message):
       return    
     chat_id = chid
     if chat_id not in callsmusic.active_chats:
-        await message.reply_text("❗ Nothing is playing to skip!")
+        await message.reply_text("❗ Keçmək üçün heç nə oynamır!")
     else:
         queues.task_done(chat_id)
 
@@ -148,4 +148,4 @@ async def admincache(client, message: Message):
             for member in await conchat.linked_chat.get_members(filter="administrators")
         ],
     )
-    await message.reply_text("❇️ Admin cache refreshed!")
+    await message.reply_text("Admin önbelleği yeniləndi❇️!")
