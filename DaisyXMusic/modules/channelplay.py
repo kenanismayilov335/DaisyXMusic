@@ -678,7 +678,7 @@ async def deezer(client: Client, message_: Message):
                     # print(e)
                     await lel.edit(
                         f"<b>🔴 Flood Gözləmə Xətası  🔴 \n istifadəçi {user.first_name} userbot tələbləri səbəbiylə kanalınıza qoşula bilmədiniz! İstifadəçinin qrupda qadağan edilmədiyinə əmin olun ."
-                        "\n\nVə ya əl ilə qrupunuza köməkçi əlavə edin və yenidən cəhd edin</b>"",
+                        "\n\nVə ya əl ilə qrupunuza köməkçi əlavə edin və yenidən cəhd edin</b>",
                     )
     try:
         await USER.get_chat(chid)
