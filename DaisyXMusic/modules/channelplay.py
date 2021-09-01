@@ -142,14 +142,14 @@ async def ee(client, message):
       lol = lel.linked_chat.id
       conv = lel.linked_chat
     except:
-      await message.reply("Is chat even linked")
+      await message.reply("Söhbət hətta əlaqəlidir")
       return
     queue = que.get(lol)
     stats = updated_stats(conv, queue)
     if stats:
         await message.reply(stats)
     else:
-        await message.reply("No VC instances running in this chat")
+        await message.reply("Bu söhbətdə çalışan VC nümunələri yoxdur")
 
 
 @Client.on_message(filters.command(["channelplayer","cplayer"]) & filters.group & ~filters.edited)
@@ -339,7 +339,7 @@ async def m_cb(b, cb):
                 await callsmusic.set_stream(
                     chet_id, queues.get(chet_id)["file"]
                 )
-                await cb.answer.reply_text("✅ <b>Skipped</b>")
+                await cb.answer.reply_text("✅ <b>Atlandı</b>")
                 await cb.message.edit((m_chat, qeue), reply_markup=r_ply(the_data))
                 await cb.message.reply_text(
                     f"- Skipped track\n- Now Playing **{qeue[0][0]}**"
@@ -362,7 +362,7 @@ async def m_cb(b, cb):
 @authorized_users_only
 async def play(_, message: Message):
     global que
-    lel = await message.reply("🔄 <b>Processing</b>")
+    lel = await message.reply("🔄 <b>İşlənilir</b>")
 
     try:
       conchat = await _.get_chat(message.chat.id)
@@ -398,7 +398,7 @@ async def play(_, message: Message):
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>Add me as admin of yor channel  first</b>",
+                        "<b>Əvvəlcə məni kanal kanalına admin olaraq əlavə et</b>",
                     )
                     return
 
@@ -413,21 +413,21 @@ async def play(_, message: Message):
                 except Exception:
                     # print(e)
                     await lel.edit(
-                        f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your channel due to heavy requests for userbot! Make sure user is not banned in group."
-                        "\n\nOr manually add assistant to your Group and try again</b>",
+                        f"<b>🔴 Flood Gözləmə Xətası  🔴 \n istifadəçi {user.first_name} userbot tələbləri səbəbiylə kanalınıza qoşula bilmədiniz! İstifadəçinin qrupda qadağan edilmədiyinə əmin olun ."
+                        "\n\nVə ya əl ilə qrupunuza köməkçi əlavə edin və yenidən cəhd edin</b>",
                     )
     try:
         await USER.get_chat(chid)
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<i> {user.first_name} Userbot not in this chat, Ask channel admin to send /play command for first time or add {user.first_name} manually</i>"
+            f"<i> {user.first_name} Userbot bu söhbətdə deyil, Kanal rəhbərindən ilk dəfə əmr göndərməsini /play və ya əlavə etməsini istəyin {user.first_name}əl ilə </i>"
         )
         return
     message.from_user.id
     text_links = None
     message.from_user.first_name
-    await lel.edit("🔎 <b>Finding</b>")
+    await lel.edit("🔎 <b>Tapmaq</b>")
     message.from_user.id
     user_id = message.from_user.id
     message.from_user.first_name
@@ -456,16 +456,16 @@ async def play(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             await lel.edit(
-                f"❌ Videos longer than {DURATION_LIMIT} minute(s) aren't allowed to play!"
+                f"❌ Uzun Videodu {DURATION_LIMIT} oynamağa icazə verilmir!"
             )
             return
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📖 Playlist", callback_data="cplaylist"),
+                    InlineKeyboardButton("📖 Liste", callback_data="cplaylist"),
                     InlineKeyboardButton("Menu ⏯ ", callback_data="cmenu"),
                 ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="ccls")],
+                [InlineKeyboardButton(text="❌ bağla", callback_data="ccls")],
             ]
         )
         file_name = get_file_name(audio)
@@ -483,7 +483,7 @@ async def play(_, message: Message):
         )
     elif urls:
         query = toxt
-        await lel.edit("🎵 **Processing**")
+        await lel.edit("🎵 **İşlənilir**")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
@@ -500,7 +500,7 @@ async def play(_, message: Message):
 
         except Exception as e:
             await lel.edit(
-                "Song not found.Try another song or maybe spell it properly."
+                "Mahnı tapılmadı. Başqa bir mahnını sınayın və ya düzgün yazın."
             )
             print(str(e))
             return
@@ -510,7 +510,7 @@ async def play(_, message: Message):
                 dur += (int(dur_arr[i]) * secmul)
                 secmul *= 60
             if (dur / 60) > DURATION_LIMIT:
-                 await lel.edit(f"❌ Videos longer than {DURATION_LIMIT} minutes aren't allowed to play!")
+                 await lel.edit(f"❌ Uzun Videodu {DURATION_LIMIT} oynamağa icazə verilmir!")
                  return
         except:
             pass        
@@ -519,14 +519,14 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📖 Playlist", callback_data="cplaylist"),
+                    InlineKeyboardButton("📖 Liste", callback_data="cplaylist"),
                     InlineKeyboardButton("Menu ⏯ ", callback_data="cmenu"),
                 ],
                 [
                     InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                    InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
+                    InlineKeyboardButton(text="Yüklə 📥", url=f"{dlurl}"),
                 ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="ccls")],
+                [InlineKeyboardButton(text="❌ Bağla", callback_data="ccls")],
             ]
         )
         requested_by = message.from_user.first_name
@@ -537,7 +537,7 @@ async def play(_, message: Message):
         for i in message.command[1:]:
             query += " " + str(i)
         print(query)
-        await lel.edit("🎵 **Processing**")
+        await lel.edit("🎵 **İşlənilir**")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
@@ -564,7 +564,7 @@ async def play(_, message: Message):
                 dur += (int(dur_arr[i]) * secmul)
                 secmul *= 60
             if (dur / 60) > DURATION_LIMIT:
-                 await lel.edit(f"❌ Videos longer than {DURATION_LIMIT} minutes aren't allowed to play!")
+                 await lel.edit(f"❌ Uzun Videodu {DURATION_LIMIT} oynamağa icazə verilmir!")
                  return
         except:
             pass
@@ -573,14 +573,14 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📖 Playlist", callback_data="cplaylist"),
+                    InlineKeyboardButton("📖 Liste", callback_data="cplaylist"),
                     InlineKeyboardButton("Menu ⏯ ", callback_data="cmenu"),
                 ],
                 [
                     InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                    InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
+                    InlineKeyboardButton(text="Yüklə 📥", url=f"{dlurl}"),
                 ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="ccls")],
+                [InlineKeyboardButton(text="❌ Bağla", callback_data="ccls")],
             ]
         )
         requested_by = message.from_user.first_name
@@ -615,7 +615,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="▶️ <b>Playing</b> the song requested by {} via Youtube Music 😎 in Linked Channel".format(
+            caption="▶️ <b>Oynayan</b> tərəfindən istənilən mahnı {} Linkli Kanalda Youtube Music via vasitəsi ilə ".format(
                 message.from_user.mention()
             ),
         )
@@ -627,7 +627,7 @@ async def play(_, message: Message):
 @authorized_users_only
 async def deezer(client: Client, message_: Message):
     global que
-    lel = await message_.reply("🔄 <b>Processing</b>")
+    lel = await message_.reply("🔄 <b>Yüklənir</b>")
 
     try:
       conchat = await client.get_chat(message_.chat.id)
@@ -655,21 +655,21 @@ async def deezer(client: Client, message_: Message):
             if administrator == message_.from_user.id:
                 if message_.chat.title.startswith("Channel Music: "):
                     await lel.edit(
-                        "<b>Remember to add helper to your channel</b>",
+                        "<b>Kanalınıza köməkçi əlavə etməyi unutmayın</b>",
                     )
                     pass
                 try:
                     invitelink = await client.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>Add me as admin of yor channel first</b>",
+                        "<b>Əvvəlcə məni kanal kanalına admin olaraq əlavə et</b>",
                     )
                     return
 
                 try:
                     await USER.join_chat(invitelink)
                     await lel.edit(
-                        "<b>helper userbot joined your channel</b>",
+                        "<b>köməkçi userbot kanalınıza qoşuldu</b>",
                     )
 
                 except UserAlreadyParticipant:
@@ -677,15 +677,15 @@ async def deezer(client: Client, message_: Message):
                 except Exception:
                     # print(e)
                     await lel.edit(
-                        f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your channel due to heavy requests for userbot! Make sure user is not banned in channel."
-                        "\n\nOr manually add assistant to your Group and try again</b>",
+                        f"<b>🔴 Flood Gözləmə Xətası  🔴 \n istifadəçi {user.first_name} userbot tələbləri səbəbiylə kanalınıza qoşula bilmədiniz! İstifadəçinin qrupda qadağan edilmədiyinə əmin olun ."
+                        "\n\nVə ya əl ilə qrupunuza köməkçi əlavə edin və yenidən cəhd edin</b>"",
                     )
     try:
         await USER.get_chat(chid)
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<i> {user.first_name} Userbot not in this channel, Ask admin to send /play command for first time or add {user.first_name} manually</i>"
+            f"<i> {user.first_name} Userbot bu söhbətdə deyil, Kanal rəhbərindən ilk dəfə əmr göndərməsini /play və ya əlavə etməsini istəyin {user.first_name}əl ilə</i>"
         )
         return
     requested_by = message_.from_user.first_name
@@ -694,7 +694,7 @@ async def deezer(client: Client, message_: Message):
     queryy = text[1]
     query=queryy
     res = lel
-    await res.edit(f"Searching 🔍 for `{queryy}` on deezer")
+    await res.edit(f"Axtarılır 🔍 for `{queryy}` on deezer")
     try:
         songs = await arq.deezer(query,1)
         if not songs.ok:
@@ -706,16 +706,16 @@ async def deezer(client: Client, message_: Message):
         duration = songs.result[0].duration
         thumbnail = songs.result[0].thumbnail
     except:
-        await res.edit("Found Literally Nothing, You Should Work On Your English!")
+        await res.edit("Heç bir şey tapmadınız, Azerbaycan diliniz üzərində işləməlisiniz!")
         return
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("📖 Playlist", callback_data="cplaylist"),
+                InlineKeyboardButton("📖 Liste", callback_data="cplaylist"),
                 InlineKeyboardButton("Menu ⏯ ", callback_data="cmenu"),
             ],
-            [InlineKeyboardButton(text="Listen On Deezer 🎬", url=f"{url}")],
-            [InlineKeyboardButton(text="❌ Close", callback_data="ccls")],
+            [InlineKeyboardButton(text="Deezer -də dinləyin 🎬", url=f"{url}")],
+            [InlineKeyboardButton(text="❌ Bağla", callback_data="ccls")],
         ]
     )
     file_path = await convert(wget.download(url))
@@ -731,9 +731,9 @@ async def deezer(client: Client, message_: Message):
         loc = file_path
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
-        await res.edit_text(f"✯{bn}✯= #️⃣ Queued at position {position}")
+        await res.edit_text(f"✯{bn}✯= #️⃣ Vəzifədə növbəyə qoyuldu  {position}")
     else:
-        await res.edit_text(f"✯{bn}✯=▶️ Playing.....")
+        await res.edit_text(f"✯{bn}✯=▶️ Başlayır.....")
 
         que[chat_id] = []
         qeue = que.get(chat_id)
@@ -758,7 +758,7 @@ async def deezer(client: Client, message_: Message):
 @authorized_users_only
 async def jiosaavn(client: Client, message_: Message):
     global que
-    lel = await message_.reply("🔄 **Processing**")
+    lel = await message_.reply("🔄 **İşlənilir**")
     try:
       conchat = await client.get_chat(message_.chat.id)
       conid = conchat.linked_chat.id
@@ -770,11 +770,11 @@ async def jiosaavn(client: Client, message_: Message):
     try:
       administrators = await get_administrators(conv)
     except:
-      await message.reply("Am I admin of Channel")
+      await message.reply("Mən kanalın adminiyəm")
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "DaisyMusic"
+        user.first_name = "FarzMusic"
     usar = user
     wew = usar.id
     try:
@@ -785,21 +785,21 @@ async def jiosaavn(client: Client, message_: Message):
             if administrator == message_.from_user.id:
                 if message_.chat.title.startswith("Channel Music: "):
                     await lel.edit(
-                        "<b>Remember to add helper to your channel</b>",
+                        "<b>Kanalınıza köməkçi əlavə etməyi unutmayın</b>",
                     )
                     pass
                 try:
                     invitelink = await client.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>Add me as admin of yor group first</b>",
+                        "<b>Məni əvvəlcə qrupuna admin olaraq əlavə edin</b>",
                     )
                     return
 
                 try:
                     await USER.join_chat(invitelink)
                     await lel.edit(
-                        "<b>helper userbot joined your channel</b>",
+                        "<b>köməkçi userbot kanalınıza qoşuldu</b>",
                     )
 
                 except UserAlreadyParticipant:
@@ -807,15 +807,15 @@ async def jiosaavn(client: Client, message_: Message):
                 except Exception:
                     # print(e)
                     await lel.edit(
-                        f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your channel due to heavy requests for userbot! Make sure user is not banned in group."
-                        "\n\nOr manually add @DaisyXmusic to your Group and try again</b>",
+                        f"<b>🔴 Flood Hətası 🔴 \nUser {user.first_name}userbot tələbləri səbəbiylə kanalınıza qoşula bilmədiniz! İstifadəçinin qrupda qadağan edilmədiyinə əmin olun."
+                        "\n\nVə ya əlinizlə @FarzMusic qrupunuza əlavə edin və yenidən cəhd edin</b>",
                     )
     try:
         await USER.get_chat(chid)
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            "<i> helper Userbot not in this channel, Ask channel admin to send /play command for first time or add assistant manually</i>"
+            "<i>köməkçi Userbot bu kanalda deyil, Kanal rəhbərindən ilk dəfə əmr göndərməsini /play və ya köməkçini əl ilə əlavə etməsini istəyin </i>"
         )
         return
     requested_by = message_.from_user.first_name
@@ -823,7 +823,7 @@ async def jiosaavn(client: Client, message_: Message):
     text = message_.text.split(" ", 1)
     query = text[1]
     res = lel
-    await res.edit(f"Searching 🔎 for `{query}` on jio saavn")
+    await res.edit(f"Axtarılır 🔎 for `{query}` on jio saavn")
     try:
         songs = await arq.saavn(query)
         if not songs.ok:
