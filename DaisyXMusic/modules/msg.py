@@ -25,25 +25,25 @@ class Messages():
       HELP_MSG = [
         ".",
 f"""
-**Hey 👋 Welcome back to {PROJECT_NAME}
+** Hey Xoş gəlmisiniz{PROJECT_NAME}
 
-⚪️ {PROJECT_NAME} can play music in your group's voice chat as well as channel voice chats
+⚪️ {PROJECT_NAME} qrupunuzun səsli söhbətində və kanal səsli söhbətlərində musiqi oxuya bilər
 
-⚪️ Assistant name >> @{ASSISTANT_NAME}\n\nClick next for instructions**
+⚪️ Köməkçi adı >> @{ASSISTANT_NAME} \ n \ n Təlimatlar üçün növbəti düyməni basın**
 """,
 
 f"""
 **Setting up**
 
-1) Make bot admin (Group and in channel if use cplay)
-2) Start a voice chat
-3) Try /play [song name] for the first time by an admin
-*) If userbot joined enjoy music, If not add @{ASSISTANT_NAME} to your group and retry
+1) Bot idarəçisi olun (cplay istifadə edərsə qrupda və kanalda)
+2) Səsli söhbətə başlayın
+3) Bir admin tərəfindən ilk dəfə [mahnı adı] sınayın /çalın
+*) İstifadəçi botu qoşulubsa, musiqidən zövq alın, @{ASSISTANT_NAME} qrupunuza əlavə edilməyibsə yenidən cəhd edin
 
-**For Channel Music Play**
-1) Make me admin of your channel 
-2) Send /userbotjoinchannel in linked group
-3) Now send commands in linked group
+** Kanal Musiqisi üçün **
+1) Məni kanalınızın idarəçisi edin
+2) Bağlı qrupa /userbotjoinchannel göndərin
+3) İndi əlaqəli qrupda əmrlər göndərin
 
 **Commands**
 
@@ -58,15 +58,14 @@ f"""
 
 **=>> Playback ⏯**
 
-- /player: Open Settings menu of player
-- /skip: Skips the current track
-- /pause: Pause track
-- /resume: Resumes the paused track
-- /end: Stops media playback
-- /current: Shows the current Playing track
-- /playlist: Shows playlist
-
-*Player cmd and all other cmds except /play, /current  and /playlist  are only for admins of the group.
+- /player: Pleyerin Ayarlar menyusunu açın
+- /skip: Cari treki atlayır
+- /pause: Parçanı durdur
+- /Resume: Durdurulan parçanı davam etdirir
+- /end: Medianın oxunmasını dayandırır
+- /current: Mövcud Çalğı parçasını göstərir
+- /playlist: çalğı siyahısını göstərir
+*Player Komutu və /play, /current və /playlist istisna olmaqla bütün digər Komutlar yalnız qrup rəhbərləri üçündür.
 """,
         
 f"""
