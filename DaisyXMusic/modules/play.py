@@ -433,7 +433,7 @@ async def m_cb(b, cb):
                 await callsmusic.set_stream(
                     chet_id, queues.get(chet_id)["file"]
                 )
-                await cb.answer.reply_text("✅ <b>Skipped</b>")
+                await cb.answer.reply_text("✅ <b>atlandı</b>")
                 await cb.message.edit((m_chat, qeue), reply_markup=r_ply(the_data))
                 await cb.message.reply_text(
                     f"- Skipped track\n- Now Playing **{qeue[0][0]}**"
@@ -458,7 +458,7 @@ async def play(_, message: Message):
     global useer
     if message.chat.id in DISABLED_GROUPS:
         return    
-    lel = await message.reply("🔄 <b>Processing</b>")
+    lel = await message.reply("🔄 <b>Başlatılır</b>")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
@@ -513,7 +513,7 @@ async def play(_, message: Message):
         )
         return
     text_links=None
-    await lel.edit("🔎 <b>Finding</b>")
+    await lel.edit("🔎 <b>Axtarılır</b>")
     if message.reply_to_message:
         entities = []
         toxt = message.reply_to_message.text or message.reply_to_message.caption
@@ -540,16 +540,16 @@ async def play(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             await lel.edit(
-                f"❌ Videos longer than {DURATION_LIMIT} minute(s) aren't allowed to play!"
+                f"❌ Video Çox Böyükdü {DURATION_LIMIT} Dəqiqədən Çoc Videolar Qebul Edilmir!"
             )
             return
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📖 Liste", callback_data="playlist"),
+                    InlineKeyboardButton("📖 Siyahı", callback_data="playlist"),
                     InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
                 ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+                [InlineKeyboardButton(text="❌ Bağla", callback_data="cls")],
             ]
         )
         file_name = get_file_name(audio)
@@ -567,7 +567,7 @@ async def play(_, message: Message):
         )
     elif urls:
         query = toxt
-        await lel.edit("🎵 <b>Processing</b>")
+        await lel.edit("🎵 <b>Başlatılır</b>")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
@@ -594,7 +594,7 @@ async def play(_, message: Message):
                 dur += (int(dur_arr[i]) * secmul)
                 secmul *= 60
             if (dur / 60) > DURATION_LIMIT:
-                 await lel.edit(f"❌ Videos longer than {DURATION_LIMIT} minutes aren't allowed to play!")
+                 await lel.edit(f"❌ Video Çox Böyükdü {DURATION_LIMIT} Dəqiqədən Çoc Videolar Qebul Edilmir")
                  return
         except:
             pass        
@@ -603,14 +603,14 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📖 Liste", callback_data="playlist"),
+                    InlineKeyboardButton("📖 Siyahı", callback_data="playlist"),
                     InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
                 ],
                 [
                     InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                    InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
+                    InlineKeyboardButton(text="Yüklə 📥", url=f"{dlurl}"),
                 ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+                [InlineKeyboardButton(text="❌ Bağla", callback_data="cls")],
             ]
         )
         requested_by = message.from_user.first_name
@@ -621,7 +621,7 @@ async def play(_, message: Message):
         for i in message.command[1:]:
             query += " " + str(i)
         print(query)
-        await lel.edit("🎵 **Processing**")
+        await lel.edit("🎵 **Başladılır**")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         
         try:
@@ -630,7 +630,7 @@ async def play(_, message: Message):
           await lel.edit("Give me something to play")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "**Select the song you want to play**\n\n"
+            toxxt = "**Hansı Musiqini İstəyirsiz**\n\n"
             j = 0
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣",]
@@ -687,7 +687,7 @@ async def play(_, message: Message):
                     dur += (int(dur_arr[i]) * secmul)
                     secmul *= 60
                 if (dur / 60) > DURATION_LIMIT:
-                     await lel.edit(f"❌ Videos longer than {DURATION_LIMIT} minutes aren't allowed to play!")
+                     await lel.edit(f"❌ Video Çox Böyükdü {DURATION_LIMIT} Dəqiqədən Çoc Videolar Qebul Edilmir")
                      return
             except:
                 pass
@@ -696,12 +696,12 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("📖 Liste", callback_data="playlist"),
+                        InlineKeyboardButton("📖 Siyahı", callback_data="playlist"),
                         InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
                     ],
                     [
                         InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                        InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
+                        InlineKeyboardButton(text="Yüklə 📥", url=f"{dlurl}"),
                     ],
                     [InlineKeyboardButton(text="❌ Bağla", callback_data="cls")],
                 ]
@@ -742,7 +742,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="▶️ <b>Playing</b> here the song requested by {} via Youtube Music 😎".format(
+            caption="▶️ <b>Başladı</b> Başlatan {} FarzMusic 😎".format(
                 message.from_user.mention()
             ),
         )
@@ -755,7 +755,7 @@ async def ytplay(_, message: Message):
     global que
     if message.chat.id in DISABLED_GROUPS:
         return
-    lel = await message.reply("🔄 <b>Processing</b>")
+    lel = await message.reply("🔄 <b>Başlatılır</b>")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
@@ -809,7 +809,7 @@ async def ytplay(_, message: Message):
             f"<i> {user.first_name} Userbot not in this chat, Ask admin to send /play command for first time or add {user.first_name} manually</i>"
         )
         return
-    await lel.edit("🔎 <b>Finding</b>")
+    await lel.edit("🔎 <b>Axtarılır</b>")
     user_id = message.from_user.id
     user_name = message.from_user.first_name
      
@@ -818,7 +818,7 @@ async def ytplay(_, message: Message):
     for i in message.command[1:]:
         query += " " + str(i)
     print(query)
-    await lel.edit("🎵 <b>Processing</b>")
+    await lel.edit("🎵 <b>Başlatılır</b>")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -845,7 +845,7 @@ async def ytplay(_, message: Message):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
         if (dur / 60) > DURATION_LIMIT:
-             await lel.edit(f"❌ Videos longer than {DURATION_LIMIT} minutes aren't allowed to play!")
+             await lel.edit(f"❌ Video Çox Böyükdü {DURATION_LIMIT} Dəqiqədən Çoc Videolar Qebul Edilmir")
              return
     except:
         pass    
@@ -854,12 +854,12 @@ async def ytplay(_, message: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("📖 Liste", callback_data="playlist"),
+                InlineKeyboardButton("📖 Siyahı", callback_data="playlist"),
                 InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
             ],
             [
                 InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
+                InlineKeyboardButton(text="Yüklə 📥", url=f"{dlurl}"),
             ],
             [InlineKeyboardButton(text="❌ Bağla", callback_data="cls")],
         ]
@@ -900,7 +900,7 @@ async def ytplay(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="▶️ <b>Playing</b> here the song requested by {} via Youtube Music 😎".format(
+            caption="▶️ <b>Başladı</b> Başlatan {} FarzMusic 😎".format(
                 message.from_user.mention()
             ),
         )
@@ -912,13 +912,13 @@ async def deezer(client: Client, message_: Message):
     if message_.chat.id in DISABLED_GROUPS:
         return
     global que
-    lel = await message_.reply("🔄 <b>Processing</b>")
+    lel = await message_.reply("🔄 <b>Axtarılır</b>")
     administrators = await get_administrators(message_.chat)
     chid = message_.chat.id
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "DaisyMusic"
+        user.first_name = "farzmusic"
     usar = user
     wew = usar.id
     try:
@@ -971,7 +971,7 @@ async def deezer(client: Client, message_: Message):
     queryy = text[1]
     query = queryy
     res = lel
-    await res.edit(f"Searching 🔍 for `{queryy}` on deezer")
+    await res.edit(f"Axtarılır 🔍 for `{queryy}` on deezer")
     try:
         songs = await arq.deezer(query,1)
         if not songs.ok:
@@ -997,7 +997,7 @@ async def deezer(client: Client, message_: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("📖 Liste", callback_data="playlist"),
+                InlineKeyboardButton("📖 Siyahı", callback_data="playlist"),
                 InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
             ],
             [InlineKeyboardButton(text="Listen On Deezer 🎬", url=f"{url}")],
@@ -1017,9 +1017,9 @@ async def deezer(client: Client, message_: Message):
         loc = file_path
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
-        await res.edit_text(f"✯{bn}✯= #️⃣ Queued at position {position}")
+        await res.edit_text(f"✯{bn}✯= #️⃣ Vəzifədə növbəyə qoyuldu {position}")
     else:
-        await res.edit_text(f"✯{bn}✯=▶️ Playing.....")
+        await res.edit_text(f"✯{bn}✯=▶️ Başlatılır.....")
 
         que[chat_id] = []
         qeue = que.get(chat_id)
@@ -1050,7 +1050,7 @@ async def jiosaavn(client: Client, message_: Message):
     global que
     if message_.chat.id in DISABLED_GROUPS:
         return    
-    lel = await message_.reply("🔄 <b>Processing</b>")
+    lel = await message_.reply("🔄 <b>Axtarılır</b>")
     administrators = await get_administrators(message_.chat)
     chid = message_.chat.id
     try:
@@ -1108,7 +1108,7 @@ async def jiosaavn(client: Client, message_: Message):
     text = message_.text.split(" ", 1)
     query = text[1]
     res = lel
-    await res.edit(f"Searching 🔍 for `{query}` on jio saavn")
+    await res.edit(f"Axtarılır 🔍 for `{query}` on jio saavn")
     try:
         songs = await arq.saavn(query)
         if not songs.ok:
@@ -1133,7 +1133,7 @@ async def jiosaavn(client: Client, message_: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("📖 Liste", callback_data="playlist"),
+                InlineKeyboardButton("📖 Siyahı", callback_data="playlist"),
                 InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
             ],
             [
@@ -1242,12 +1242,12 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("📖 Liste", callback_data="playlist"),
+                InlineKeyboardButton("📖 Siyahı", callback_data="playlist"),
                 InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
             ],
             [
                 InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
+                InlineKeyboardButton(text="Yüklə 📥", url=f"{dlurl}"),
             ],
             [InlineKeyboardButton(text="❌ Bağla", callback_data="cls")],
         ]
@@ -1291,7 +1291,7 @@ async def lol_cb(b, cb):
         await b.send_photo(chat_id,
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"▶️ <b>Playing</b> here the song requested by {r_by.mention} via Youtube Music 😎",
+            caption=f"▶️ <b>Başladı</b> Başlatan {r_by.mention} FarzMusic 😎",
         )
         
         os.remove("final.png")
