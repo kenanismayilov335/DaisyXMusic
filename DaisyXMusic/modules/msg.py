@@ -70,46 +70,46 @@ f"""
 """,
         
 f"""
-**=>> Channel Music Play 🛠**
+**=>> Komutlar 🛠**
 
 ⚪️ For linked group admins only:
 
-- /cplay [song name] - play song you requested
-- /cdplay [song name] - play song you requested via deezer
-- /csplay [song name] - play song you requested via jio saavn
-- /cplaylist - Show now playing list
-- /cccurrent - Show now playing
-- /cplayer - open music player settings panel
-- /cpause - pause song play
-- /cresume - resume song play
-- /cskip - play next song
-- /cend - stop music play
-- /userbotjoinchannel - invite assistant to your chat
+- /cplay [mahnı adı] - istədiyiniz mahnını səsləndirin
+- /cdplay [mahnı adı] - deezer vasitəsilə istədiyiniz mahnını səsləndirin
+- /csplay [mahnı adı] - jio saavn vasitəsilə istədiyiniz mahnını çalın
+- /cplaylist - İndi ifa siyahısını göstər
+- /cccurrent - İndi oynayan göstər
+- /cplayer - musiqi pleyerinin ayar panelini açın
+- /cpause - mahnı çalmağı dayandırın
+- /cresume - mahnı ifasına davam et
+- /cskip - növbəti mahnını oxudun
+- /cend - musiqi çalmağı dayandırın
+- /userbotjoinchannel - söhbətinizə köməkçi dəvət edin
 
 channel is also can be used instead of c ( /cplay = /channelplay )
 
-⚪️ If you donlt like to play in linked group:
+⚪️ Bağlı qrupda oynamaq istəmirsinizsə:
 
-1) Get your channel ID.
-2) Create a group with tittle: Channel Music: your_channel_id
-3) Add bot as Channel admin with full perms
-4) Add @{ASSISTANT_NAME} to the channel as an admin.
-5) Simply send commands in your group.
+1) Kanal nömrənizi əldə edin.
+2) Başlığı olan bir qrup yaradın: Kanal Musiqisi: kanalınız_kimi
+3) Tam icazə ilə Kanal idarəçisi olaraq bot əlavə edin
+4) Kanala admin olaraq @{ASSISTANT_NAME} əlavə edin.
+5) Sadəcə qrupunuzdakı əmrləri göndərin.
 """,
 
 f"""
-**=>> More tools 🧑‍🔧**
+**=>> Diğər Komutlar🧑‍🔧**
 
-- /musicplayer [on/off]: Enable/Disable Music player
-- /admincache: Updates admin info of your group. Try if bot isn't recognize admin
-- /userbotjoin: Invite @{ASSISTANT_NAME} Userbot to your chat
+-/musicplayer [on/off]: Musiqi pleyerini aktiv edin/deaktiv edin
+- /admincache: Qrupunuzun admin məlumatlarını yeniləyir. Botun administratoru tanımadığını sınayın
+- /userbotjoin: @{ASSISTANT_NAME} istifadəçi botunu söhbətinizə dəvət edin
 
-**=>> Commands for Sudo Users ⚔️**
+**=>> Admin Komutları ⚔️**
 
- - /userbotleaveall - remove assistant from all chats
- - /gcast <reply to message> - globally brodcast replied message to all chats
- - /pmpermit [on/off] - enable/disable pmpermit message
-*Sudo Users can execute any command in any groups
+- /userbotleaveall - köməkçini bütün söhbətlərdən silin
+ - /gcast <mesaja cavab ver> - qlobal miqyasda brodcast bütün söhbətlərə mesajı cavablandırdı
+ -/pmpermit [on/off] - pmpermit mesajını aktivləşdir/söndür
+*Sudo İstifadəçiləri istənilən qrupdakı istənilən əmri yerinə yetirə bilərlər
 
 """
       ]
