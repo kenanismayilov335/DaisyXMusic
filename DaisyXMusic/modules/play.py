@@ -178,7 +178,7 @@ def updated_stats(chat, queue, vol=100):
             stats += "\n\n"
             stats += "Vaxt; : {}%\n".format(vol)
             stats += "Mahnı növbə : `{}`\n".format(len(que))
-            stats += "Indi Oynay;r : **{}**\n".format(queue[0][0])
+            stats += "Indi Oynayır : **{}**\n".format(queue[0][0])
             stats += "Başlatan : {}".format(queue[0][1].mention)
     else:
         stats = None
