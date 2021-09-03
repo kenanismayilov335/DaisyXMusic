@@ -152,7 +152,7 @@ async def playlist(client, message):
         temp.append(t)
     now_playing = temp[0][0]
     by = temp[0][1].mention(style="md")
-    msg = "**Now Playing** in {}".format(message.chat.title)
+    msg = "**İndi Oynanır** in {}".format(message.chat.title)
     msg += "\n- " + now_playing
     msg += "\n- Req by " + by
     temp.pop(0)
@@ -176,10 +176,10 @@ def updated_stats(chat, queue, vol=100):
         stats = "Settings of **{}**".format(chat.title)
         if len(que) > 0:
             stats += "\n\n"
-            stats += "Volume : {}%\n".format(vol)
-            stats += "Songs in queue : `{}`\n".format(len(que))
-            stats += "Now Playing : **{}**\n".format(queue[0][0])
-            stats += "Requested by : {}".format(queue[0][1].mention)
+            stats += "Vaxt; : {}%\n".format(vol)
+            stats += "Mahnı növbə : `{}`\n".format(len(que))
+            stats += "Indi Oynay;r : **{}**\n".format(queue[0][0])
+            stats += "Başlatan : {}".format(queue[0][1].mention)
     else:
         stats = None
     return stats
@@ -300,7 +300,7 @@ async def p_cb(b, cb):
             temp.append(t)
         now_playing = temp[0][0]
         by = temp[0][1].mention(style="md")
-        msg = "<b>Now Playing</b> in {}".format(cb.message.chat.title)
+        msg = "<b>İndi Oynayır</b> in {}".format(cb.message.chat.title)
         msg += "\n- " + now_playing
         msg += "\n- Req by " + by
         temp.pop(0)
@@ -367,7 +367,7 @@ async def m_cb(b, cb):
             temp.append(t)
         now_playing = temp[0][0]
         by = temp[0][1].mention(style="md")
-        msg = "**Now Playing** in {}".format(cb.message.chat.title)
+        msg = "**İndi Oynayır** in {}".format(cb.message.chat.title)
         msg += "\n- " + now_playing
         msg += "\n- Req by " + by
         temp.pop(0)
@@ -436,7 +436,7 @@ async def m_cb(b, cb):
                 await cb.answer.reply_text("✅ <b>atlandı</b>")
                 await cb.message.edit((m_chat, qeue), reply_markup=r_ply(the_data))
                 await cb.message.reply_text(
-                    f"- Skipped track\n- Now Playing **{qeue[0][0]}**"
+                    f"- Keçid Edildi\n- İndi Oynayır **{qeue[0][0]}**"
                 )
 
     else:
@@ -636,9 +636,9 @@ async def play(_, message: Message):
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣",]
 
             while j < 5:
-                toxxt += f"{emojilist[j]} <b>Title - [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})</b>\n"
-                toxxt += f" ╚ <b>Duration</b> - {results[j]['duration']}\n"
-                toxxt += f" ╚ <b>Views</b> - {results[j]['views']}\n"
+                toxxt += f"{emojilist[j]} <b> Başlıq - [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})</b>\n"
+                toxxt += f" ╚ <b>Vaxt</b> - {results[j]['duration']}\n"
+                toxxt += f" ╚ <b>İzleyici</b> - {results[j]['views']}\n"
                 toxxt += f" ╚ <b>Channel</b> - {results[j]['channel']}\n\n"
 
                 j += 1            
