@@ -1269,7 +1269,7 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,
             photo="final.png",
-            caption=f"#⃣  Song requested by {r_by.mention} <b>queued</b> at position {position}!",
+            caption=f"#⃣  Musiqiyi Başlatan {r_by.mention} <b>Növbə</b> Sırası{position}!",
             reply_markup=keyboard,
         )
         os.remove("final.png")
