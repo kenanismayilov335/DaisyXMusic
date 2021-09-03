@@ -46,7 +46,7 @@ def _start(client, message):
                         "💬 Kömək", url=f"https://t.me/{SUPPORT_GROUP}")
                 ],[
                     InlineKeyboardButton(
-                        "🛠 Məni Yaradan 🛠", url=f"https://{SOURCE_CODE}")
+                        "🛠 Məni Yaradan 🛠", url=f"https://{ADMİNİN}")
                 ]
             ]
         ),
