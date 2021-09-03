@@ -46,7 +46,7 @@ def _start(client, message):
                         "💬 Kömək", url=f"https://t.me/{SUPPORT_GROUP}")
                 ],[
                     InlineKeyboardButton(
-                        "🛠 Məni Yaradan 🛠", url=f"https://{ADMİNİN}")
+                        "🛠 Məni Yaradan 🛠", url=f"https://{SOURCE_CODE}")
                 ]
             ]
         ),
@@ -104,7 +104,7 @@ def map(pos):
             [InlineKeyboardButton("➕ Məni Əlavə Et🙋‍♀️", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
             [InlineKeyboardButton(text = '📲 Kanalımız', url=f"https://t.me/{UPDATES_CHANNEL}"),
              InlineKeyboardButton(text = '💬 Kömək', url=f"https://t.me/{SUPPORT_GROUP}")],
-            [InlineKeyboardButton(text = '🛠 Məni Yaradan 🛠', url=f"https://t.me/{ADMİNİN}")],
+            [InlineKeyboardButton(text = '🛠 Məni Yaradan 🛠', url=f"https://{SOURCE_CODE}")],
             [InlineKeyboardButton(text = '◀️', callback_data = f"help+{pos-1}")]
         ]
     else:
