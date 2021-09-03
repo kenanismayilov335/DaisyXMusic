@@ -46,7 +46,7 @@
     },
     "ADMİNİN": {
       "description": "ADMİNNİCKNAME.",
-      "required": false,
+      "required": true
       "value": ""
     },    
     "BG_IMAGE": {
