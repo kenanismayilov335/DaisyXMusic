@@ -25,15 +25,15 @@ class Messages():
       HELP_MSG = [
         ".",
 f"""
-** Hey Xoş gəlmisiniz{PROJECT_NAME}
+** Hey Xoş gəlmisiniz {PROJECT_NAME}
 
 ⚪️ {PROJECT_NAME} qrupunuzun səsli söhbətində və kanal səsli söhbətlərində musiqi oxuya bilər
 
-⚪️ Köməkçi adı >> @{ASSISTANT_NAME} \n \n Təlimatlar üçün növbəti düyməni basın**
+⚪️ Köməkçi adı >>  @{ASSISTANT_NAME} \n \n Təlimatlar üçün növbəti düyməni basın**
 """,
 
 f"""
-**Setting up**
+**Ayarlamaq**
 
 1) Bot idarəçisi olun (cplay istifadə edərsə qrupda və kanalda)
 2) Səsli söhbətə başlayın
@@ -45,9 +45,9 @@ f"""
 2) Bağlı qrupa /userbotjoinchannel göndərin
 3) İndi əlaqəli qrupda əmrlər göndərin
 
-**Commands**
+**Komutlar**
 
-**=>> Song Playing 🎧**
+**=>> Mahnı Çalma 🎧**
 
 - /play: İstədiyiniz mahnını səsləndirin
 - /play [yt url]: Verilmiş yt urlini oxudun
@@ -56,7 +56,7 @@ f"""
 - /splay: Jio saavn vasitəsilə mahnı oxudun
 - /ytplay: Birbaşa Youtube Music vasitəsilə mahnı oxudun
 
-**=>> Playback ⏯**
+**=>> Musiqi Zamanı ⏯**
 
 - /player: Playerin Ayarlar menyusunu açın
 - /skip: Musiqini atlayır
@@ -71,7 +71,7 @@ Player Komutu və /play, /current və /playlist istisna olmaqla bütün digər K
 f"""
 **=>> Komutlar 🛠**
 
-⚪️ For linked group admins only:
+⚪️ Yalnız əlaqəli qrup rəhbərləri üçün:
 
 - /cplay [mahnı adı] - istədiyiniz mahnını səsləndirin
 - /cdplay [mahnı adı] - deezer vasitəsilə istədiyiniz mahnını səsləndirin
@@ -108,7 +108,7 @@ f"""
 - /userbotleaveall - köməkçini bütün söhbətlərdən silin
  - /gcast <mesaja cavab ver> - qlobal miqyasda brodcast bütün söhbətlərə mesajı cavablandırdı
  -/pmpermit [on/off] - pmpermit mesajını aktivləşdir/söndür
-*Sudo İstifadəçiləri istənilən qrupdakı istənilən əmri yerinə yetirə bilərlər
+Sudo İstifadəçiləri istənilən qrupdakı istənilən əmri yerinə yetirə bilərlər
 
 """
       ]
