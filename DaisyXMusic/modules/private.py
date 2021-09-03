@@ -104,7 +104,7 @@ def map(pos):
             [InlineKeyboardButton("➕ Məni Əlavə Et🙋‍♀️", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
             [InlineKeyboardButton(text = '📲 Kanalımız', url=f"https://t.me/{UPDATES_CHANNEL}"),
              InlineKeyboardButton(text = '💬 Kömək', url=f"https://t.me/{SUPPORT_GROUP}")],
-            [InlineKeyboardButton(text = '🛠 Məni Yaradan 🛠', url=f"https://{SOURCE_CODE}")],
+            [InlineKeyboardButton(text = '🛠 Məni Yaradan 🛠', url=f"https://t.me/{ADMİNİN}")],
             [InlineKeyboardButton(text = '◀️', callback_data = f"help+{pos-1}")]
         ]
     else:
