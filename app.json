@@ -44,8 +44,8 @@
       "description": "Your MusicPlayer's assistant Username without @.",
       "required": true
     },
-    "ARQ_API_KEY": {
-      "description": "Get from @ARQRobot.",
+    "ADMİNİN": {
+      "description": "ADMİNNİCKNAME.",
       "required": false,
       "value": ""
     },    
