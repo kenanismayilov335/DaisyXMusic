@@ -29,7 +29,7 @@ f"""
 
 ⚪️ {PROJECT_NAME} qrupunuzun səsli söhbətində və kanal səsli söhbətlərində musiqi oxuya bilər
 
-⚪️ Köməkçi adı >> @{ASSISTANT_NAME} \ n \ n Təlimatlar üçün növbəti düyməni basın**
+⚪️ Köməkçi adı >> @{ASSISTANT_NAME} \n \n Təlimatlar üçün növbəti düyməni basın**
 """,
 
 f"""
@@ -49,23 +49,23 @@ f"""
 
 **=>> Song Playing 🎧**
 
-- /play: Play the requestd song
-- /play [yt url] : Play the given yt url
-- /play [reply yo audio]: Play replied audio
-- /dplay: Play song via deezer
-- /splay: Play song via jio saavn
-- /ytplay: Directly play song via Youtube Music
+- /play: İstədiyiniz mahnını səsləndirin
+- /play [yt url]: Verilmiş yt urlini oxudun
+- /play [səsə cavab ver]: Cavab verilən səsi oxudun
+- /dplay: Mahnını deezer vasitəsilə çalın
+- /splay: Jio saavn vasitəsilə mahnı oxudun
+- /ytplay: Birbaşa Youtube Music vasitəsilə mahnı oxudun
 
 **=>> Playback ⏯**
 
-- /player: Pleyerin Ayarlar menyusunu açın
-- /skip: Cari treki atlayır
+- /player: Playerin Ayarlar menyusunu açın
+- /skip: Musiqini atlayır
 - /pause: Parçanı durdur
 - /Resume: Durdurulan parçanı davam etdirir
 - /end: Medianın oxunmasını dayandırır
-- /current: Mövcud Çalğı parçasını göstərir
+- /current: Mövcud Musiqi parçasını göstərir
 - /playlist: çalğı siyahısını göstərir
-*Player Komutu və /play, /current və /playlist istisna olmaqla bütün digər Komutlar yalnız qrup rəhbərləri üçündür.
+Player Komutu və /play, /current və /playlist istisna olmaqla bütün digər Komutlar yalnız qrup rəhbərləri üçündür.
 """,
         
 f"""
@@ -85,7 +85,7 @@ f"""
 - /cend - musiqi çalmağı dayandırın
 - /userbotjoinchannel - söhbətinizə köməkçi dəvət edin
 
-channel is also can be used instead of c ( /cplay = /channelplay )
+Komut əvəzinə kanal da istifadə edilə bilər ( /cplay = /channelplay)
 
 ⚪️ Bağlı qrupda oynamaq istəmirsinizsə:
 
